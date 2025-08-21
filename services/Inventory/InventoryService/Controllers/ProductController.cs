@@ -1,7 +1,10 @@
+using InventoryService.Application;
+using InventoryService.Domain;
 using InventoryService.DTOs;
-using InventoryService.Services;
+using InventoryService.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryService.Controllers
 {
@@ -10,44 +13,35 @@ namespace InventoryService.Controllers
     [Authorize]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductService _service;
+        private readonly InventoryDbContext _context;
 
-        public ProductsController(IProductService service)
+        public ProductsController(InventoryDbContext context)
         {
-            _service = service;
-        }
-
-        [HttpGet]
-        
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
-            => Ok(await _service.GetAllAsync());
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDto>> GetProduct(int id)
-        {
-            var product = await _service.GetByIdAsync(id);
-            return product == null ? NotFound() : Ok(product);
+            _context = context;
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProductDto>> PostProduct(CreateProductDto dto)
+        public async Task<IActionResult> CreateProduct(Product product)
         {
-            var product = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return Ok(product);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(int id, ProductDto dto)
+        [HttpGet]
+        public async Task<IActionResult> GetAllProducts()
         {
-            var success = await _service.UpdateAsync(id, dto);
-            return success ? NoContent() : NotFound();
+            var products = await _context.Products.ToListAsync();
+            return Ok(products);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
         {
-            var success = await _service.DeleteAsync(id);
-            return success ? NoContent() : NotFound();
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null)
+                return NotFound();
+            return Ok(product);
         }
     }
 }

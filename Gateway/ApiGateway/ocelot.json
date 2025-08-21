@@ -1,0 +1,50 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/products/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/products/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "InventoryService",
+      "Config": [
+        {
+          "Name": "Inventory API",
+          "Version": "v1",
+          "Url": "https://localhost:7285/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "SalesService",
+      "Config": [
+        {
+          "Name": "Sales API",
+          "Version": "v1",
+          "Url": "https://localhost:7141/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}

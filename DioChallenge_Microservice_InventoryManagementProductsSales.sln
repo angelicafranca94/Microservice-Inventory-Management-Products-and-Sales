@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateway", "APIGateway", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{7224E3C0-7C37-4F64-8C5B-EB5780D3D8C7}"
 EndProject
@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sale", "Sale", "{8479394F-1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "services\Auth\AuthService\AuthService.csproj", "{60D2C257-04D6-49A2-BD1C-34BE11194A1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesService", "services\Sale\SalesService\SalesService.csproj", "{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "Gateway\ApiGateway\ApiGateway.csproj", "{033728AD-14D1-433B-B630-6641F3F1BA44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{60D2C257-04D6-49A2-BD1C-34BE11194A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60D2C257-04D6-49A2-BD1C-34BE11194A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60D2C257-04D6-49A2-BD1C-34BE11194A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033728AD-14D1-433B-B630-6641F3F1BA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033728AD-14D1-433B-B630-6641F3F1BA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033728AD-14D1-433B-B630-6641F3F1BA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033728AD-14D1-433B-B630-6641F3F1BA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +55,8 @@ Global
 		{897591E4-8811-4846-9B35-35D0FAFB1872} = {7224E3C0-7C37-4F64-8C5B-EB5780D3D8C7}
 		{8479394F-1A53-4C92-848B-0E48507FDDDE} = {7224E3C0-7C37-4F64-8C5B-EB5780D3D8C7}
 		{60D2C257-04D6-49A2-BD1C-34BE11194A1D} = {897591E4-8811-4846-9B35-35D0FAFB1872}
+		{E5E4DB07-85F9-4891-B2F8-7F2DD2ED42B3} = {8479394F-1A53-4C92-848B-0E48507FDDDE}
+		{033728AD-14D1-433B-B630-6641F3F1BA44} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A8EB41F-1866-48A5-B475-451C4CDF02E2}
