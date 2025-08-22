@@ -1,16 +1,20 @@
-{
+﻿{
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/products/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 7285
         }
       ],
       "UpstreamPathTemplate": "/products/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/orders/{everything}",
@@ -18,16 +22,21 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5002
+          "Port": 7141
         }
       ],
       "UpstreamPathTemplate": "/orders/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "SwaggerEndPoints": [
     {
-      "Key": "InventoryService",
+      "Key": "InventoryAPI",
+      "TransformByOcelotConfig": false,
       "Config": [
         {
           "Name": "Inventory API",
@@ -37,7 +46,8 @@
       ]
     },
     {
-      "Key": "SalesService",
+      "Key": "SalesAPI",
+      "TransformByOcelotConfig": false,
       "Config": [
         {
           "Name": "Sales API",

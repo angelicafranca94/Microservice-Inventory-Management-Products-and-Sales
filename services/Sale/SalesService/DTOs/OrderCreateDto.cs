@@ -1,7 +1,10 @@
-﻿namespace SalesService.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SalesService.DTOs
 {
     public class OrderCreateDto
     {
-        public List<OrderItemDto> Items { get; set; }
+        [Required]
+        public IEnumerable<OrderItemDto> Items { get; set; } = [];
     }
 }
